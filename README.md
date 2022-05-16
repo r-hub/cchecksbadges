@@ -1,0 +1,2 @@
+# cchecksbadges
+CRAN checks Badges
