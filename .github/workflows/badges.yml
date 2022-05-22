@@ -1,0 +1,41 @@
+name: update-badges
+
+on:
+  push:
+    branches:
+      - main
+  # schedule:
+  #   - cron: "0 */6 * * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+    
+    - uses: actions/checkout@v2
+
+    - name: Install ganda
+      run: |
+        GANDA_URL="https://github.com/tednaleid/ganda/releases/download/v0.1.10/ganda_0.1.10_Linux_x86_64.tar.gz" \
+        && wget $GANDA_URL \
+        && tar -zxvf ganda_0.1.10_Linux_x86_64.tar.gz \
+        && mv ganda /usr/local/bin
+
+    - name: Setup ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 3.1
+    - run: bundle install
+    
+    - name: Make svgs
+      run: |
+        sh scrape_pkgs.sh
+        rake makesvgs
+
+    # - name: Deploy 🚀
+    #   uses: JamesIves/github-pages-deploy-action@4.1.4
+    #   with:
+    #     branch: gh-pages
+    #     folder: svgs
