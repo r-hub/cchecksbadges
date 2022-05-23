@@ -2,11 +2,13 @@ require "multi_json"
 require_relative "badge_methods"
 
 def badge_create_type(package, type)
+  ignore = false
+  color = nil
   d = MultiJson.load(File.read("jsons/%s.json" % package))
   if type == "summary"
-    do_badge(package, params, d)
+    do_badge(package, ignore, color, d)
   elsif type == "worst"
-    do_badge_worst(package, params, d)
+    do_badge_worst(package, color, d)
   else
     return nil
   end
@@ -18,5 +20,12 @@ def badge_create_flavor(package, flavor, ignore)
 end
 
 def make_svgs
-  puts "not done yet"  
+  # puts "not done yet"
+  jsons = Dir["jsons/*.json"]
+  pkgs = jsons.map { |e| e.gsub(/jsons\/|.json/, '') }
+  pkgs.map { |e|
+    svg = badge_create_type(e, 'summary')
+    File.open("svgs/" + e, 'w') { |f| f.puts svg }
+    # badge_create_type(pkgs.first, 'worst')
+  }
 end

@@ -45,8 +45,8 @@ $badge_svg = <<-eos
 </svg>
 eos
 
-def do_badge(package, params, body)
-  ignore = as_bool(params[:ignore])
+def do_badge(package, ignore, color, body)
+  ignore = as_bool(ignore)
   pbody = MultiJson.load(body.to_json)
   if pbody.nil?
     message = "unknown"
@@ -79,11 +79,11 @@ def do_badge(package, params, body)
     end
   end
 
-  svg = make_badge("CRAN", message, params)
+  svg = make_badge("CRAN", message, color)
   return svg
 end
 
-def do_badge_worst(package, params, body)
+def do_badge_worst(package, color, body)
   pbody = MultiJson.load(body.to_json)
   if pbody.nil?
     message = "unknown"
@@ -108,7 +108,7 @@ def do_badge_worst(package, params, body)
     end
   end
 
-  svg = make_badge("CRAN", message, params)
+  svg = make_badge("CRAN", message, color)
   return svg
 end
 
@@ -134,18 +134,18 @@ def do_badge_flavor(package, flavor, ignore, body)
     end
   end
 
-  svg = make_badge("CRAN", message, params)
+  svg = make_badge("CRAN", message, color)
   return svg
 end
 
-def make_badge(text, message, params)
+def make_badge(text, message, color)
   def_color = "brightgreen"
   def_color = "grey" if message.to_s == "unknown"
   def_color = "blue" if message.to_s.downcase == "note"
   def_color = "yellow" if message.to_s.downcase == "warn"
   def_color = "red" if message.to_s == "Not OK"
   def_color = "red" if message.to_s.downcase == "error"
-  color = params["color"] || def_color
+  color = color || def_color
   color = $svg_colors[color] || color
 
   len = message.length

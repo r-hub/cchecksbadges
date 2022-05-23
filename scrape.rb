@@ -66,7 +66,7 @@ end
 
 def write_to_disk(x)
   File.open("jsons/%s.json" % x['package'], "w") do |f|
-    f.write(x.to_json)
+    f.write(MultiJson.dump(x))
   end
 end
 

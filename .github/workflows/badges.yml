@@ -29,11 +29,15 @@ jobs:
         ruby-version: 3.1.0
     - run: bundle install
     
-    - name: Make svgs
-      run: |
-        sh scrape_pkgs.sh
-        rake makesvgs
+    - name: Gather CRAN data
+      run: sh scrape_pkgs.sh
 
+    - name: Scrape html
+      run: rake scrape
+
+    - name: Make svgs
+      run: rake makesvgs
+    
     # - name: Deploy 🚀
     #   uses: JamesIves/github-pages-deploy-action@4.1.4
     #   with:
