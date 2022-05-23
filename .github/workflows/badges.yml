@@ -1,5 +1,8 @@
 name: update-badges
 
+permissions: 
+  contents: write
+
 on:
   push:
     branches:
@@ -43,5 +46,3 @@ jobs:
       with:
         branch: gh-pages
         folder: svgs
-      permissions: 
-        contents: write
