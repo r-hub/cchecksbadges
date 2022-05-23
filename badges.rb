@@ -31,7 +31,7 @@ def make_svgs
   end
   pkgs.map { |e|
     svg = badge_create_type(e, 'summary')
-    File.open("svgs/" + e, 'w') { |f| f.puts svg }
+    File.open("svgs/" + e + ".svg", 'w') { |f| f.puts svg }
     # badge_create_type(pkgs.first, 'worst')
   }
 end
