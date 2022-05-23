@@ -39,7 +39,9 @@ jobs:
       run: rake makesvgs
     
     - name: Deploy 🚀
-      uses: JamesIves/github-pages-deploy-action@4.1.4
+      uses: JamesIves/github-pages-deploy-action@4.3.3
       with:
         branch: gh-pages
         folder: svgs
+      permissions: 
+        contents: write
