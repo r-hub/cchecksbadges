@@ -21,8 +21,14 @@ end
 
 def make_svgs
   # puts "not done yet"
-  jsons = Dir["jsons/*.json"]
-  pkgs = jsons.map { |e| e.gsub(/jsons\/|.json/, '') }
+  # jsons = Dir["jsons/*.json"]
+  # pkgs = jsons.map { |e| e.gsub(/jsons\/|.json/, '') }
+  pkgs = []
+  File.open("names.txt", "r") do |f|
+    f.each_line do |line|
+      pkgs << line.chomp.gsub(/"/, '')
+    end
+  end
   pkgs.map { |e|
     svg = badge_create_type(e, 'summary')
     File.open("svgs/" + e, 'w') { |f| f.puts svg }

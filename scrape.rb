@@ -75,5 +75,7 @@ def scrape_all
   pat = "/tmp/htmls/https-cloud-r-project-org-web-checks-check-results-html"
   htmls.reject! { |z| z.match(/results-html$/) }; nil
   out = Parallel.map(htmls, in_processes: 2) { |e| scrape_pkg_body(e) }; nil
+  # pkg_names = out.map { |e| e['package'] }
+  # File.open("package_names.txt", 'w') { |file| file.write(pkg_names) }
   out.map { |e| write_to_disk(e) }
 end
