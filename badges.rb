@@ -28,9 +28,9 @@ def make_svgs
   end
   pkgs.map { |e|
     svg = badge_create_type(e, 'summary')
-    File.open("svgs/badges/summary" + e + ".svg", 'w') { |f| f.puts svg }
+    File.open("svgs/badges/summary/" + e + ".svg", 'w') { |f| f.puts svg }
     
     svg = badge_create_type(e, 'worst')
-    File.open("svgs/badges/worst" + e + ".svg", 'w') { |f| f.puts svg }
+    File.open("svgs/badges/worst/" + e + ".svg", 'w') { |f| f.puts svg }
   }
 end
