@@ -14,7 +14,8 @@ def badge_create_type(package, type)
   end
 end
 
-def badge_create_flavor(package, flavor, ignore)
+def badge_create_flavor(package, flavor)
+  ignore = false
   d = MultiJson.load(File.read("jsons/%s.json" % package))
   do_badge_flavor(package, flavor, ignore, d)
 end
@@ -32,5 +33,8 @@ def make_svgs
     
     svg = badge_create_type(e, 'worst')
     File.open("svgs/badges/worst/" + e + ".svg", 'w') { |f| f.puts svg }
+
+    svg = badge_create_flavor(e, 'release')
+    File.open("svgs/badges/flavor/release/" + e + ".svg", 'w') { |f| f.puts svg }
   }
 end
