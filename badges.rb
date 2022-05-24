@@ -20,9 +20,6 @@ def badge_create_flavor(package, flavor, ignore)
 end
 
 def make_svgs
-  # puts "not done yet"
-  # jsons = Dir["jsons/*.json"]
-  # pkgs = jsons.map { |e| e.gsub(/jsons\/|.json/, '') }
   pkgs = []
   File.open("names.txt", "r") do |f|
     f.each_line do |line|
@@ -31,7 +28,9 @@ def make_svgs
   end
   pkgs.map { |e|
     svg = badge_create_type(e, 'summary')
-    File.open("svgs/" + e + ".svg", 'w') { |f| f.puts svg }
-    # badge_create_type(pkgs.first, 'worst')
+    File.open("svgs/badges/summary" + e + ".svg", 'w') { |f| f.puts svg }
+    
+    svg = badge_create_type(e, 'worst')
+    File.open("svgs/badges/worst" + e + ".svg", 'w') { |f| f.puts svg }
   }
 end
