@@ -1,0 +1,1 @@
+flavor=release badges!
