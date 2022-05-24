@@ -113,6 +113,7 @@ def do_badge_worst(package, color, body)
 end
 
 def do_badge_flavor(package, flavor, ignore, body)
+  color = nil
   pbody = MultiJson.load(body.to_json)
   if pbody.nil?
     message = "unknown"
