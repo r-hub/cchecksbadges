@@ -1,7 +1,7 @@
 require "multi_json"
 require_relative "badge_methods"
 
-paths = [
+$paths = [
   "windows",
   "linux",
   "macos",
@@ -53,7 +53,7 @@ def make_svgs
     end
   end
   
-  paths.map { |e| mkdir_if(e) }
+  $paths.map { |e| mkdir_if(e) }
   
   pkgs.map { |pkg|
     svg = badge_create_type(pkg, 'summary')
@@ -62,7 +62,7 @@ def make_svgs
     svg = badge_create_type(pkg, 'worst')
     File.open("svgs/badges/worst/" + pkg + ".svg", 'w') { |f| f.puts svg }
 
-    paths.map { |path| 
+    $paths.map { |path| 
       svg = badge_create_flavor(pkg, path)
       File.open("svgs/badges/flavor/%s/" % path + pkg + ".svg", 'w') { |f| f.puts svg }  
     }
