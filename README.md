@@ -28,6 +28,6 @@ Just the badges from https://github.com/sckott/cchecksapi - no API - just the ba
 
 ## Some example routes
 
-https://badges.cranchecks.info/summary/taxize.svg
-https://badges.cranchecks.info/worst/dplyr.svg
-https://badges.cranchecks.info/flavor/r-devel-linux-x86_64-fedora-clang/DT.svg
+- https://badges.cranchecks.info/summary/taxize.svg
+- https://badges.cranchecks.info/worst/dplyr.svg
+- https://badges.cranchecks.info/flavor/r-devel-linux-x86_64-fedora-clang/DT.svg
