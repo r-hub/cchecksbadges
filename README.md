@@ -4,6 +4,8 @@ CRAN checks Badges
 
 Just the badges from https://github.com/sckott/cchecksapi - no API - just the badges
 
+The workflow is easiest to see in the [GitHub Actions workflow file](https://github.com/sckott/cchecksbadges/blob/main/.github/workflows/badges.yml). 
+
 ## Routes
 
 - `/summary/:pkg.svg`
