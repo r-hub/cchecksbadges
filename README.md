@@ -19,6 +19,33 @@ Notes:
 - Dependencies are defined in file `Gemfile`
 - The Ruby version is defined in the file `.ruby-version`
 
+## Badges
+
+Unknown/not found:
+
+![](svg-egs/unknown.svg)
+
+Ok:
+
+![](svg-egs/ok.svg)
+
+Not ok:
+
+![](svg-egs/notok.svg)
+
+Note:
+
+![](svg-egs/note.svg)
+
+Warn:
+
+![](svg-egs/warn.svg)
+
+Error:
+
+![](svg-egs/error.svg)
+
+
 ## Routes
 
 - `/summary/:pkg.svg`
