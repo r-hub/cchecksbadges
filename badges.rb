@@ -42,7 +42,7 @@ end
 def mkdir_if(path)
   full_path = "svgs/badges/flavor/" + path
   puts full_path
-  Dir.exists?(full_path) ? nil : Dir.mkdir(full_path)
+  Dir.exist?(full_path) ? nil : Dir.mkdir(full_path)
 end
 
 def make_svgs
