@@ -30,9 +30,9 @@ def scrape_pkg_body(z)
   if tr.length == 0
     return {"package" => pkg, "checks" => nil}
   end
-  rws = tr.map { |e| e.xpath('./td//text()').map { |w| w.text }  }.keep_if { |a| a.length > 0 }
+  rws = tr.map { |e| e.xpath('./td//text()').map { |w| w.text.strip }  }.keep_if { |a| a.length > 0 }
   rws = rws.map { |e| e.map { |f| f.lstrip } }
-  rws = rws.map { |e| [e[2], e[3], e[4], e[5], e[6], e[9]] }
+  rws = rws.map { |e| [e[4], e[5], e[6], e[7], e[8], e[11]] }
   nms = tr[0].text.split(' ')
   nms.pop
   res = rws.map { |e| Hash[nms.zip(e)] }
