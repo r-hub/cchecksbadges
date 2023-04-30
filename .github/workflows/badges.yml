@@ -17,7 +17,7 @@ jobs:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
     
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
     - name: Install ganda
       run: |
@@ -29,7 +29,7 @@ jobs:
     - name: Setup ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: 3.1.0
+        ruby-version: 3.2.1
     - run: bundle install
     
     - name: Gather CRAN data
@@ -42,7 +42,7 @@ jobs:
       run: rake makesvgs
     
     - name: Deploy 🚀
-      uses: JamesIves/github-pages-deploy-action@4.2.0
+      uses: JamesIves/github-pages-deploy-action@4.4.1
       with:
         branch: gh-pages
         folder: svgs/badges
