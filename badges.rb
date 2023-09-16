@@ -12,13 +12,13 @@ $paths = [
   "r-devel-linux-x86_64-debian-gcc",
   "r-devel-linux-x86_64-fedora-clang",
   "r-devel-linux-x86_64-fedora-gcc",
-  "r-devel-windows-ix86+x86_64",
+  "r-devel-windows-x86_64",
   "r-oldrel-macos-x86_64",
-  "r-oldrel-windows-ix86+x86_64",
+  "r-oldrel-windows-x86_64",
   "r-patched-linux-x86_64",
   "r-release-linux-x86_64",
   "r-release-macos-x86_64",
-  "r-release-windows-ix86+x86_64"]
+  "r-release-windows-x86_64"]
 
 def badge_create_type(package, type)
   ignore = false
