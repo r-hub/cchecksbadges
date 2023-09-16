@@ -8,7 +8,7 @@ GEM
       ast
       ruby-ll (~> 2.1)
     parallel (1.23.0)
-    rake (12.3.3)
+    rake (13.0.6)
     ruby-ll (2.1.2)
       ansi
       ast
@@ -16,16 +16,17 @@ GEM
 PLATFORMS
   arm64-darwin-20
   arm64-darwin-21
+  arm64-darwin-22
 
 DEPENDENCIES
   bundler
   multi_json (~> 1.15)
   oga (~> 3.4)
   parallel (~> 1.23)
-  rake (~> 12.3, >= 12.3.2)
+  rake (~> 13.0, >= 13.0.6)
 
 RUBY VERSION
-   ruby 3.2.1p31
+   ruby 3.2.2p53
 
 BUNDLED WITH
    2.3.6
