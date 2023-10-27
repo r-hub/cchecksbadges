@@ -20,9 +20,9 @@ def fetch_urls(foo)
 end
 
 def scrape_pkg_body(z)
-  base_url = 'https://cloud.r-project.org/web/checks/check_results_%s.html'
+  base_url = 'https://cran.rstudio.com/web/checks/check_results_%s.html'
   
-  sub_str = "https-cloud-r-project-org-web-checks-check-results-"
+  sub_str = "https-cran-rstudio-com-web-checks-check-results-"
   pkg = z.split('/').last.sub(/-html$/, "").sub(sub_str, "").gsub("-", ".")
 
   html = Oga.parse_html(File.read(z).force_encoding 'UTF-8');
@@ -72,7 +72,7 @@ end
 
 def scrape_all
   htmls = list_htmls("/tmp/htmls/*");
-  pat = "/tmp/htmls/https-cloud-r-project-org-web-checks-check-results-html"
+  pat = "/tmp/htmls/https-cran-rstudio-com-web-checks-check-results-html"
   htmls.reject! { |z| z.match(/results-html$/) }; nil
   out = Parallel.map(htmls, in_processes: 2) { |e| scrape_pkg_body(e) }; nil
   # pkg_names = out.map { |e| e['package'] }
