@@ -1,6 +1,6 @@
 name: update-badges
 
-permissions: 
+permissions:
   contents: write
 
 on:
@@ -16,33 +16,32 @@ jobs:
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
-    
-    - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-    - name: Install ganda
-      run: |
-        GANDA_URL="https://github.com/tednaleid/ganda/releases/download/v0.1.10/ganda_0.1.10_Linux_x86_64.tar.gz" \
-        && wget $GANDA_URL \
-        && tar -zxvf ganda_0.1.10_Linux_x86_64.tar.gz \
-        && mv ganda /usr/local/bin
+      - name: Install ganda
+        run: |
+          GANDA_URL="https://github.com/tednaleid/ganda/releases/download/v1.0.3/ganda_Linux_x86_64.tar.gz" \
+          && wget $GANDA_URL \
+          && tar -zxvf ganda_Linux_x86_64.tar.gz \
+          && mv ganda /usr/local/bin
 
-    - name: Setup ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: 3.2.2
-    - run: bundle install
-    
-    - name: Gather CRAN data
-      run: sh scrape_pkgs.sh
+      - name: Setup ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.2.2
+      - run: bundle install
 
-    - name: Scrape html
-      run: rake scrape
+      - name: Gather CRAN data
+        run: sh scrape_pkgs.sh
 
-    - name: Make svgs
-      run: rake makesvgs
-    
-    - name: Deploy 🚀
-      uses: JamesIves/github-pages-deploy-action@4.2.0
-      with:
-        branch: gh-pages
-        folder: svgs/badges
+      - name: Scrape html
+        run: rake scrape
+
+      - name: Make svgs
+        run: rake makesvgs
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.2.0
+        with:
+          branch: gh-pages
+          folder: svgs/badges
