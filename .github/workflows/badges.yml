@@ -20,7 +20,7 @@ jobs:
 
       - name: Install ganda
         run: |
-          GANDA_URL="https://github.com/tednaleid/ganda/releases/download/v1.0.3/ganda_Linux_x86_64.tar.gz" \
+          GANDA_URL="https://github.com/tednaleid/ganda/releases/download/v1.1.1/ganda_Linux_x86_64.tar.gz" \
           && wget $GANDA_URL \
           && tar -zxvf ganda_Linux_x86_64.tar.gz \
           && mv ganda /usr/local/bin
