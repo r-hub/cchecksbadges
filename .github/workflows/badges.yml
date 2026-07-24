@@ -32,7 +32,7 @@ jobs:
       - run: bundle install
 
       - name: Gather CRAN data
-        run: sh scrape_pkgs.sh
+        run: bash scrape_pkgs.sh
 
       - name: Scrape html
         run: rake scrape
