@@ -18,12 +18,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install httpx
+      - name: Install httpx binary
         run: |
-          HTTPX_URL="https://github.com/projectdiscovery/httpx/releases/download/v1.10.0/httpx_1.10.0_linux_amd64.zip" \
-          && wget $HTTPX_URL \
-          && unzip httpx_1.10.0_linux_amd64.zip \
-          && mv httpx /usr/local/bin
+          curl -sL https://github.com/projectdiscovery/httpx/releases/download/v1.10.0/httpx_1.10.0_linux_amd64.zip -o httpx.zip
+          unzip -o httpx.zip httpx -d /usr/local/bin
+          chmod +x /usr/local/bin/httpx
+          httpx -version
 
       - name: Setup ruby
         uses: ruby/setup-ruby@v1
