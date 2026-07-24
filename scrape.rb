@@ -11,8 +11,8 @@ class Array
 end
 
 def fetch_urls(foo)
-  tmp = foo.map { |e| 
-    e.xpath('./td//a[contains(., "OK") or contains(., "ERROR") or contains(., "NOTE") or contains(., "WARN") or contains(., "FAIL")]') 
+  tmp = foo.map { |e|
+    e.xpath('./td//a[contains(., "OK") or contains(., "ERROR") or contains(., "NOTE") or contains(., "WARN") or contains(., "FAIL")]')
   }
   tmp = tmp.keep_if { |e| e.length > 0 }
   xx = tmp.map { |e| e.attribute('href')[0].text }
@@ -55,8 +55,8 @@ def scrape_pkg_body(z)
   summary = {
     "any" => stats.count_em("ok") != stats.length,
     "ok" => stats.count_em("ok"),
-    "note" => stats.count_em("note"), 
-    "warn" => stats.count_em("warn"), 
+    "note" => stats.count_em("note"),
+    "warn" => stats.count_em("warn"),
     "error"=> stats.count_em("error"),
     "fail"=> stats.count_em("fail")
   }
