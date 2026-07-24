@@ -20,8 +20,8 @@ def fetch_urls(foo)
 end
 
 def scrape_pkg_body(z)
-  base_url = 'https://cran.rstudio.com/web/checks/check_results_%s.html'
-  
+  base_url = 'https://cloud.r-project.org/web/checks/check_results_%s.html'
+
   sub_str = "https-cran-rstudio-com-web-checks-check-results-"
   pkg = z.split('/').last.sub(/-html$/, "").sub(sub_str, "").gsub("-", ".")
 
