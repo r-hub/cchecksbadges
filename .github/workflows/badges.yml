@@ -18,12 +18,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install ganda
+      - name: Install httpx
         run: |
-          GANDA_URL="https://github.com/tednaleid/ganda/releases/download/v1.1.1/ganda_Linux_x86_64.tar.gz" \
-          && wget $GANDA_URL \
-          && tar -zxvf ganda_Linux_x86_64.tar.gz \
-          && mv ganda /usr/local/bin
+          HTTPX_URL="https://github.com/projectdiscovery/httpx/releases/download/v1.10.0/httpx_1.10.0_linux_amd64.zip" \
+          && wget $HTTPX_URL \
+          && unzip httpx_1.10.0_linux_amd64.zip \
+          && mv httpx /usr/local/bin
 
       - name: Setup ruby
         uses: ruby/setup-ruby@v1

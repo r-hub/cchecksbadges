@@ -22,8 +22,7 @@ end
 def scrape_pkg_body(z)
   base_url = 'https://cloud.r-project.org/web/checks/check_results_%s.html'
 
-  sub_str = "https-cloud-r-project-org-web-checks-check-results-"
-  pkg = z.split('/').last.sub(/-html$/, "").sub(sub_str, "").gsub("-", ".")
+  pkg = File.basename(z, ".html")
 
   html = Oga.parse_html(File.read(z).force_encoding 'UTF-8');
   tr = html.xpath('//table//tr');
@@ -71,9 +70,7 @@ def write_to_disk(x)
 end
 
 def scrape_all
-  htmls = list_htmls("/tmp/htmls/*");
-  pat = "/tmp/htmls/https-cloud-r-project-org-web-checks-check-results"
-  htmls.reject! { |z| z.match(/results-html$/) }; nil
+  htmls = list_htmls("/tmp/htmls/*.html");
   out = Parallel.map(htmls, in_processes: 2) { |e| scrape_pkg_body(e) }; nil
   # pkg_names = out.map { |e| e['package'] }
   # File.open("package_names.txt", 'w') { |file| file.write(pkg_names) }
