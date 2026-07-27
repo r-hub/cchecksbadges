@@ -16,7 +16,7 @@ jobs:
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Install httpx binary
         run: |
@@ -41,7 +41,7 @@ jobs:
         run: rake makesvgs
 
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@4.2.0
+        uses: JamesIves/github-pages-deploy-action@4.8.0
         with:
           branch: gh-pages
           folder: svgs/badges
