@@ -20,7 +20,7 @@ jobs:
 
       - name: Install httpx binary
         run: |
-          curl -sL https://github.com/projectdiscovery/httpx/releases/download/v1.10.0/httpx_1.10.0_linux_amd64.zip -o httpx.zip
+          curl -sL https://github.com/projectdiscovery/httpx/releases/download/v1.12.0/httpx_1.12.0_linux_amd64.zip -o httpx.zip
           unzip -o httpx.zip httpx -d /usr/local/bin
           chmod +x /usr/local/bin/httpx
           httpx -version

@@ -17,7 +17,7 @@ GEM
       logger
       prism (>= 1.6.0)
       tsort
-    ruby-ll (2.1.2)
+    ruby-ll (2.2.0)
       ansi
       ast
     ruby-lsp (0.26.10)
