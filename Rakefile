@@ -3,6 +3,11 @@ require_relative 'badges'
 
 require 'rake/testtask'
 
+Rake::TestTask.new(:test) do |test|
+  test.pattern = 'test/**/*_test.rb'
+  test.warning = false
+end
+
 desc "scrape html files"
 task :scrape do
   begin

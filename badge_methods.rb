@@ -47,7 +47,7 @@ eos
 
 def do_badge(package, ignore, color, body)
   ignore = as_bool(ignore)
-  pbody = MultiJson.load(body.to_json)
+  pbody = MultiJson.load(MultiJson.dump(body))
   if pbody.nil?
     message = "unknown"
   else
@@ -84,7 +84,7 @@ def do_badge(package, ignore, color, body)
 end
 
 def do_badge_worst(package, color, body)
-  pbody = MultiJson.load(body.to_json)
+  pbody = MultiJson.load(MultiJson.dump(body))
   if pbody.nil?
     message = "unknown"
   else
@@ -114,7 +114,7 @@ end
 
 def do_badge_flavor(package, flavor, ignore, body)
   color = nil
-  pbody = MultiJson.load(body.to_json)
+  pbody = MultiJson.load(MultiJson.dump(body))
   if pbody.nil?
     message = "unknown"
   else

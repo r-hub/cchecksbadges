@@ -19,6 +19,19 @@ Notes:
 - Dependencies are defined in file `Gemfile`
 - The Ruby version is defined in the file `.ruby-version`
 
+## Development and tests
+
+Install the Ruby version in `.ruby-version` (currently 4.0.9), then run:
+
+```sh
+bundle install
+bundle exec rake test
+```
+
+The tests run offline and cover HTTP response conversion, CRAN HTML parsing,
+JSON output, and SVG badge generation. GitHub Actions uses `.ruby-version` too
+and runs the tests before generating and deploying badges.
+
 ## Badges
 
 Unknown/not found:

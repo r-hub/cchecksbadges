@@ -28,17 +28,19 @@ jobs:
       - name: Setup ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.2.2
-      - run: bundle install
+          bundler-cache: true
+
+      - name: Test
+        run: bundle exec rake test
 
       - name: Gather CRAN data
         run: bash scrape_pkgs.sh
 
       - name: Scrape html
-        run: rake scrape
+        run: bundle exec rake scrape
 
       - name: Make svgs
-        run: rake makesvgs
+        run: bundle exec rake makesvgs
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
