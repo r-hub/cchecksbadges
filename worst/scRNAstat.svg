@@ -8,7 +8,7 @@
   </mask>
   <g mask="url(#a)">
     <path fill="#555" d="M0 0h43v20H0z"/>
-    <path fill="#007ec6" d="M43 0h58.5v20H43z"/>
+    <path fill="#dfb317" d="M43 0h58.5v20H43z"/>
     <path fill="url(#b)" d="M0 0h82v20H0z"/>
   </g>
   <g fill="#fff" text-anchor="middle"
@@ -20,10 +20,10 @@
       CRAN
     </text>
     <text x="61.5" y="15" fill="#010101" fill-opacity=".3">
-      NOTE
+      WARN
     </text>
     <text x="61.5" y="14">
-      NOTE
+      WARN
     </text>
   </g>
 </svg>
